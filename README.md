@@ -16,8 +16,8 @@ Instructions for decrypting a file:
 
 1. Run file_encrypter_decrypter.py
 2. Enter "D" for file decryption.
-3. Place the encrypted file in the "encrypted" directory.
-4. Place the key file in the "key" directory.
+3. Place the key file in the "key" directory.
+4. Place the encrypted file in the "encrypted" directory.
 5. Enter the name of the key file to be used for decrypting the file.
 6. Enter the name of the encrypted file in the "encrypted" directory.
 7. The file will be decrypted and stored in the "decrypted" directory.
@@ -26,6 +26,6 @@ It is extremely important to not lose the key file, as this is the ONLY key that
 
 ## Note: This program uses the following external package: cryptography
 
-If you do not have this package installed, you can install it with pip.
-On Windows, execute the following command: pip install cryptography
-On Linux/macOS, execute the following command: pip3 install cryptography
+If you do not have this package installed, you can install it with pip.<br/>
+On Windows, execute the following command: pip install cryptography<br/>
+On Linux/macOS, execute the following command: pip3 install cryptography<br/>

@@ -15,7 +15,7 @@ class FileEncryptionDecryption:
             f.write(self.key) # Writes the key to the file.
 
         # Displays a message that the key is successfully generated and stored in the "key" directory.
-        print(f'\n"{self.keyfile_name}" is successfully generated and stored in the "key" directory.')
+        print(f'"{self.keyfile_name}" is successfully generated and stored in the "key" directory.')
         # Displays a message to keep the key file in a safe location, since this is the ONLY key that can be used for decryption.
         print(f'Please keep "{self.keyfile_name}" safely, as this is the ONLY key that can be used to decrypt the file.\n')
 
@@ -172,7 +172,7 @@ class FileEncryptionDecryption:
         else:
             # Display a message that the encrypted item is not a file, and that only files can be encrypted.
             print(f'"{self.encrypted_filename}" is NOT a file. You can only encrypt files and NOT directories.\n')
-            self.start() # Restart the program.
+            self.start() # Restarts the program.
 
         while True:
             # Prompt the user to enter the name of the decrypted file.
@@ -228,8 +228,8 @@ class FileEncryptionDecryption:
     def display_decryption_instructions(self):
         '''Displays the instructions for decrypting a file.'''
         print('\nINSTRUCTIONS TO DECRYPT FILE:')
-        print('1. Place the encrypted file in the "encrypted" directory.')
-        print('2. Place the key file in the "key" directory.')
+        print('1. Place the key file in the "key" directory.')
+        print('2. Place the encrypted file in the "encrypted" directory.')
         print('3. Enter the name of the key file to be used for decrypting the file.')
         print('4. Enter the name of the encrypted file in the "encrypted" directory.')
         print('5. The file will be decrypted and stored in the "decrypted" directory.')
@@ -247,8 +247,8 @@ class FileEncryptionDecryption:
             with open(self.filepath, 'rb') as f: # Opens the file to be encrypted in read-binary mode.
                 data = f.read() # Reads the contents of the encrypted file.
         except FileNotFoundError:
-            # Displays an error message if the path of the file to be encrypted does not exist.
-            print(f'"{self.filepath}" does not exist.\n')
+            # Displays an error message if the file to be encrypted does not exist.
+            print(f'"{self.filename}" does not exist.\n')
             self.start() # Restarts the program.
         except:
             print('Some other error occured.\n') # Displays an error message if some other error occured.
@@ -276,7 +276,7 @@ class FileEncryptionDecryption:
                 encrypted_data = f.read() # Reads the contents of the encrypted file.
         except FileNotFoundError:
             # Display a message the the encrypted file does not exist.
-            print(f'"{self.encrypted_file_path}" does not exist.\n') 
+            print(f'"{self.encrypted_filename}" does not exist.\n') 
             self.start() # Restarts the program.
         except:
             print('Some other error occured.\n') # Displays an error message if some other error occured.
@@ -289,15 +289,15 @@ class FileEncryptionDecryption:
             with open(self.decrypted_file_path, 'wb') as f: # Creates the decrypted file in write-binary mode.
                 f.write(decrypted_data) # Writes the contents to the decrypted file.
 
-            # Displays a message the the file is successfulyl decrypted and that the decrypted file is stored in the "decrypted" directory.
+            # Displays a message the the file is successfully decrypted and that the decrypted file is stored in the "decrypted" directory.
             print(f'"{self.encrypted_filename}" is succesfully decrypted. The decrypted file "{self.decrypted_filename}" is stored in the "decrypted" directory.\n')
         except InvalidToken:
             # Displays an error message if the decryption key is invalid.
             print(f'"{self.keyfile_name}" is invalid. Please ensure that the key is valid for decryption.\n')
             self.start() # Restarts the program.
-        # except:
-        #     print('Some other error occured.\n') # Displays an error message if some other error occured.
-        #     self.start() # Restarts the program.
+        except:
+            print('Some other error occured.\n') # Displays an error message if some other error occured.
+            self.start() # Restarts the program.
 
     def start(self):
         '''Starts the program.'''
