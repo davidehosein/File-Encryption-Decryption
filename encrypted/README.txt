@@ -1,0 +1,1 @@
+After the file is encrypted, the encrypted file will appear in this directory.
